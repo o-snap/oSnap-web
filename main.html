@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <script src="node_modules/argon2-browser/lib/argon2.js"></script>
+</head>
+
+<body>
+
+
+
+<h1>Welcome to oSNAP!</h1>
+
+<form id="formElem">
+  <label for="name">Enter your name:</label><br><br>
+  <input type="text" id="name" name="fullName" placeholder="Name:"><br><br>
+
+  <label for="phone">Enter your phone number:</label><br><br>
+  <input type="text" id="number" name="number" placeholder="Phone Number:"><br><br>
+
+  <label for="email">Enter your WPI email:</label><br><br>
+  <input type="text" id="user" name="email" placeholder="Email:"><br><br>
+
+  <label for="pass">Enter your password:</label><br><br>
+  <input type="text" id="password" name="pass" placeholder="Password:"><br><br>
+  <input type="submit"><br><br>
+
+</form>
+<script>
+
+
+    // account details:
+    // name (first, last), phone #, WPI email, password
+    
+    // if signing up:
+
+   
+    formElem.onsubmit = async (e) => {
+        e.preventDefault();
+        let dat = new FormData(formElem)
+
+      //name
+        let name = dat.getAll("fullName")
+        console.log(dat.getAll("fullName"));
+
+      //number
+        let number = dat.getAll("number")
+        console.log(dat.getAll("number"));
+
+      //email
+        let user = dat.getAll("email")
+        console.log(dat.getAll("email"));
+
+       //password
+        let password = dat.getAll("pass")
+        console.log(dat.getAll("pass"));
+        console.log(argon2.hash({pass: password, salt: "asdfa4g43gasdf"}))
+      };
+    
+    //check if username and password match in database
+    
+    
+    //password is hashed and sent over to A
+    
+        </script>
+</body>
+</html>
