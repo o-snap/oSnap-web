@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <script src="node_modules/argon2-browser/lib/argon2.js"></script>
+</head>
+
+<body>
+  
+    <h1>Welcome back to oSNAP!</h1>
+
+    <form id="formElem">
+        <label for="email">Enter your WPI email:</label><br><br>
+        <input type="text" id="user" name="email" placeholder="Email:"><br><br>
+      
+        <label for="pass">Enter your password:</label><br><br>
+        <input type="text" id="password" name="pass" placeholder="Password:"><br><br>
+        <input type="submit"><br><br>
+    </form>
+
+    <script>
+
+        formElem.onsubmit = async (e) => {
+        e.preventDefault();
+        let dat = new FormData(formElem)
+
+        //email
+        let user = dat.getAll("email")
+        console.log(dat.getAll("email"));
+
+       //password
+        let password = dat.getAll("pass")
+        console.log(dat.getAll("pass"));
+        console.log(argon2.hash({pass: password, salt: "asdfa4g43gasdf"})) //hash function using argon2
+      };
+
+
+    </script>
+
+    <p>
+        <a href="main.html" target = "_self">
+        Or: Sign Up
+        </a>
+    </p>
+
+</body>
+</html>

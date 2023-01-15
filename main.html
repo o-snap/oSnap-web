@@ -6,8 +6,6 @@
 
 <body>
 
-
-
 <h1>Welcome to oSNAP!</h1>
 
 <form id="formElem">
@@ -60,7 +58,36 @@
     
     
     //password is hashed and sent over to A
+    var jsonObject = 
+        {
+            Name: name, 
+            Number: number,
+            Email:user,
+            Password:password
+        }
+        jsonObject = JSON.stringify(jsonObject);
     
+    /*await fetch(url, {
+        method: 'POST',
+        cache: 'no-cache', 
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    body: jsonObject
+  });     */
         </script>
+
+<p>
+    <a href="verifyEmail.html" target = "_self">
+    Next
+    </a>
+</p>
+
+<p>
+    <a href="welcomeBack.html" target = "_self">
+        Or: Login
+    </a>
+</p>
+
 </body>
 </html>
